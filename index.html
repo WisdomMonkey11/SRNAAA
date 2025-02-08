@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Valentine's Surprise</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
@@ -28,8 +28,9 @@
             height: 100%;
         }
         .envelope {
-            width: 400px;
-            height: 310px;
+            width: 80vw;
+            max-width: 400px;
+            height: auto;
             position: relative;
             animation: bounce 1.5s infinite;
             z-index: 1;
@@ -39,7 +40,7 @@
         
         .envelope img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: contain;
         }
 
@@ -56,10 +57,11 @@
 
         .arrow {
             position: absolute;
-            top: 33%;
-            left: 52%;
-            transform: rotate(-35deg);
-            width: 400px;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%) rotate(-35deg);
+            width: 50vw;
+            max-width: 300px;
             animation: arrowPointing 1.5s infinite ease-in-out;
             z-index: 2;
         }
@@ -70,16 +72,17 @@
         }
         
         @keyframes arrowPointing {
-            0%, 100% { transform: rotate(-35deg) translateX(0); }
-            50% { transform: rotate(-35deg) translateX(10px); }
+            0%, 100% { transform: translateX(-50%) rotate(-35deg); }
+            50% { transform: translateX(-50%) rotate(-35deg) translateX(10px); }
         }
         
         .click-text {
             position: absolute;
-            top: 24%;
-            left: 69%;
+            top: 18%;
+            left: 50%;
             transform: translateX(-50%);
-            font-size: 26px;
+            font-size: 5vw;
+            max-font-size: 26px;
             font-weight: bold;
             color: red;
             font-family: 'Shadows Into Light', cursive;
@@ -99,17 +102,17 @@
             background-color: #A7E7D0;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            font-family: Arial, sans-serif;
+            font-size: 5vw;
             color: white;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .heart {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 6vw;
+            height: auto;
             top: -50px;
             opacity: 1;
             animation: dropDown 4s ease-in-out forwards;
@@ -158,13 +161,13 @@
         <div class="arrow">
             <img src="arrow.png" alt="Arrow">
         </div>
-        <div class="click-text">CLICKK MEEE!! :3</div>
+        <div class="click-text">CLICK ME!! :3</div>
         <div class="envelope" onclick="openEnvelope()">
-            <img src="enevelope.png" alt="Envelope">
+            <img src="envelope.png" alt="Envelope">
         </div>
     </div>
     <div class="hidden-content">
-          ooooop can't reveal anymore :p
+        ooooop can't reveal anymore :p
     </div>
 </body>
 </html>
