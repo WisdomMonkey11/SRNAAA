@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Valentine's Surprise</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
         
         body {
+            background-color: pink;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: pink;
-            margin: 0;
-            position: relative;
             overflow: hidden;
+            flex-direction: column;
             transition: background-color 1s ease-in-out;
         }
+        
         .content {
             display: flex;
             flex-direction: column;
@@ -27,6 +27,7 @@
             width: 100%;
             height: 100%;
         }
+        
         .envelope {
             width: 80vw;
             max-width: 400px;
@@ -43,57 +44,18 @@
             height: auto;
             object-fit: contain;
         }
-
+        
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
         }
-
+        
         @keyframes poof {
             0% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.3); opacity: 0.7; }
             100% { transform: scale(2); opacity: 0; }
         }
-
-        .arrow {
-            position: absolute;
-            top: 25%;
-            left: 50%;
-            transform: translateX(-50%) rotate(-35deg);
-            width: 50vw;
-            max-width: 300px;
-            animation: arrowPointing 1.5s infinite ease-in-out;
-            z-index: 2;
-        }
         
-        .arrow img {
-            width: 100%;
-            height: auto;
-        }
-        
-        @keyframes arrowPointing {
-            0%, 100% { transform: translateX(-50%) rotate(-35deg); }
-            50% { transform: translateX(-50%) rotate(-35deg) translateX(10px); }
-        }
-        
-        .click-text {
-            position: absolute;
-            top: 18%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: clamp(24px, 8vw, 40px);
-            font-weight: bold;
-            color: red;
-            font-family: 'Shadows Into Light', cursive;
-            display: flex;
-            animation: textJump 1.5s infinite;
-        }
-
-        @keyframes textJump {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
-        }
-
         .hidden-content {
             display: none;
             width: 100%;
@@ -101,30 +63,41 @@
             background-color: #A7E7D0;
             align-items: center;
             justify-content: center;
-            font-size: 5vw;
-            color: white;
+            flex-direction: column;
             position: relative;
             overflow: hidden;
-            text-align: center;
         }
-
+        
+        .valentine-text {
+            font-size: 6vw;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            font-family: 'Shadows Into Light', cursive;
+            text-align: center;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
         .heart {
             position: absolute;
-            width: 10vw;
+            width: 40px;
             height: auto;
-            top: -50px;
-            opacity: 1;
-            animation: dropDown 4s ease-in-out forwards;
+            opacity: 0.8;
+            animation: floatUp 4s linear infinite;
         }
-
-        .heart img {
-            width: 100%;
-            height: auto;
-        }
-
-        @keyframes dropDown {
-            0% { transform: translateY(-100%); opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1.2);
+                opacity: 0;
+            }
         }
     </style>
     <script>
@@ -135,38 +108,36 @@
             setTimeout(() => {
                 envelope.style.display = 'none';
                 newContent.style.display = 'flex';
+                gsap.to(".valentine-text", { duration: 2, opacity: 1, y: 20, ease: "power2.out" });
                 createHearts();
             }, 1000);
         }
-
+        
         function createHearts() {
-            for (let i = 0; i < 50; i++) {
-                let heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = '-50px';
-                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-                let img = document.createElement('img');
-                img.src = Math.random() > 0.5 ? 'heart1.png' : 'heart2.png';
-                heart.appendChild(img);
+            setInterval(() => {
+                let heart = document.createElement("img");
+                heart.src = "heart1.png"; // Replace with your heart image path
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
                 document.querySelector('.hidden-content').appendChild(heart);
-                heart.addEventListener('animationend', () => heart.remove());
-            }
+                setTimeout(() => { heart.remove(); }, 4000);
+            }, 300);
         }
     </script>
 </head>
 <body>
     <div class="content">
-        <div class="arrow">
-            <img src="arrow.png" alt="Arrow">
-        </div>
-        <div class="click-text">CLICK ME!! :3</div>
         <div class="envelope" onclick="openEnvelope()">
             <img src="envelope.png" alt="Envelope">
         </div>
     </div>
     <div class="hidden-content">
-        ooooop can't reveal anymore :p
+        <div class="valentine-text">
+            <div>HAPPYYY VALENTINES</div>
+            <div>  SRNAAA</div>
+            <div>MY LOVEEE </div>
+        </div>
     </div>
 </body>
 </html>
