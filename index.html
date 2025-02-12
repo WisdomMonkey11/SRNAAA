@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Valentine's Surprise</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
         
@@ -16,7 +18,7 @@
             justify-content: center;
             height: 100vh;
             overflow: hidden;
-            background-color: #ffccf2; /* Pinkish background */
+            background-color: #ffccf2;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -33,11 +35,10 @@
             position: relative;
         }
 
-        /* Animated Video Container */
         .animated-video {
-            width: 50vw; /* Increased size */
-            max-width: 400px; /* Maximum size */
-            margin-bottom: 20px; /* Space between video and envelope */
+            width: 50vw;
+            max-width: 400px;
+            margin-bottom: 20px;
         }
 
         .animated-video video {
@@ -46,8 +47,8 @@
         }
         
         .envelope {
-            width: 50vw; /* Larger envelope */
-            max-width: 300px; /* Maximum size */
+            width: 50vw;
+            max-width: 300px;
             height: auto;
             position: relative;
             animation: bounce 1.5s infinite;
@@ -81,42 +82,42 @@
         }
         
         .valentine-text {
-            font-size: 12vw; /* Increased text size */
+            font-size: 12vw;
             font-weight: bold;
-            color: #ff6699; /* Pinkish text color */
-            text-shadow: 0 0 15px rgba(255, 102, 153, 0.8); /* Adjusted shadow */
-            font-family: 'Shadows Into Light', cursive;
+            color: #ff6699;
+            text-shadow: 0 0 15px rgba(255, 102, 153, 0.8);
+            font-family: 'Lilita One', cursive;
             text-align: center;
             opacity: 0;
             display: flex;
             flex-direction: column;
-            gap: 0; /* No space between lines */
+            gap: 0;
             position: relative;
-            margin-top: 2vh; /* Reduced space above the text */
-            -webkit-text-stroke: 2px #ff3366; /* Outline */
-            text-stroke: 2px #ff3366; /* Outline */
+            margin-top: 2vh;
+            -webkit-text-stroke: 2px #ff3366;
+            text-stroke: 2px #ff3366;
         }
 
         .valentine-text div {
-            line-height: 0.9; /* Tighter line spacing */
+            line-height: 0.9;
         }
         
         .ui-container {
             display: flex;
-            flex-direction: column; /* Changed to column layout */
-            align-items: center; /* Center items */
-            width: 80%; /* Adjusted width */
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
             margin-top: 5vh;
-            gap: 5vh; /* Increased spacing between boxes */
+            gap: 5vh;
         }
         
         .counter-box, .love-meter-box {
-            background-color: #ff99cc; /* Pink box */
+            background-color: #ff99cc;
             padding: 20px;
             border-radius: 15px;
             cursor: pointer;
             text-align: center;
-            width: 80%; /* Full width */
+            width: 80%;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
@@ -126,37 +127,37 @@
         }
         
         .counter-box h2, .love-meter-box h2 {
-            font-family: 'Shadows Into Light', cursive;
-            color: #ff6699; /* Pinkish text color */
-            font-size: 6vw; /* Increased text size */
+            font-family: 'Lilita One', cursive;
+            color: #ff6699;
+            font-size: 6vw;
             margin: 0;
         }
         
         .counter-details, .love-meter-details {
             display: none;
             margin-top: 10px;
-            font-family: 'Shadows Into Light', cursive;
-            color: #ff6699; /* Pinkish text color */
-            font-size: 5vw; /* Increased font size */
-            background-color: #ffc2d1; /* Lighter pink background */
-            border-radius: 15px; /* Rounded corners */
-            padding: 20px; /* Increased padding */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-            animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+            font-family: 'Chewy', cursive;
+            color: #ff6699;
+            font-size: 5vw;
+            background-color: #ffc2d1;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-in-out;
         }
         
         .counter-details div, .love-meter-details div {
-            margin: 10px 0; /* Increased margin for better spacing */
-            font-size: 5vw; /* Increased font size */
+            margin: 10px 0;
+            font-size: 5vw;
             font-weight: bold;
-            color: #ff6699; /* Pinkish text color */
-            text-shadow: 0 0 10px rgba(255, 102, 153, 0.8); /* Adjusted shadow */
-            transition: all 0.3s ease; /* Smooth transition for hover effects */
+            color: #ff6699;
+            text-shadow: 0 0 10px rgba(255, 102, 153, 0.8);
+            transition: all 0.3s ease;
         }
         
         .counter-details div:hover, .love-meter-details div:hover {
-            transform: scale(1.1); /* Slightly enlarge on hover */
-            color: #ff3366; /* Change color on hover */
+            transform: scale(1.1);
+            color: #ff3366;
         }
         
         @keyframes fadeIn {
@@ -164,7 +165,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Heart Particle Styles */
         .heart-particle {
             position: absolute;
             width: 70px;
@@ -177,18 +177,54 @@
             0% { transform: translateY(100vh) scale(1); opacity: 1; }
             100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
         }
+
+        #love-meter-text {
+            font-family: 'Chewy', cursive;
+            font-size: 5vw;
+            color: #ff3366;
+            cursor: pointer;
+            text-align: center;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        #love-meter-text:hover {
+            transform: scale(1.1);
+            color: #ff0066;
+        }
+
+        #love-bar {
+            margin-top: 10px;
+            display: none;
+        }
+
+        #final-text {
+            font-family: 'Lilita One', cursive;
+            font-size: 6vw;
+            color: #ff3366;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            animation: popIn 1s ease-in-out;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            60% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
 <body>
     <div class="content">
-        <!-- Animated Video (WebM with transparency) -->
         <div class="animated-video">
             <video autoplay loop muted playsinline id="valentine-video">
                 <source src="peachngoma.webm" type="video/webm">
                 Your browser does not support the video tag.
             </video>
         </div>
-        <!-- Envelope -->
         <div class="envelope" onclick="openEnvelope()">
             <img src="envelope.png" alt="Envelope">
         </div>
@@ -200,7 +236,6 @@
             <div>MY LOVEEE</div>
         </div>
         <div class="ui-container">
-            <!-- Time Together Counter -->
             <div class="counter-box" onclick="toggleDropdown(this)">
                 <h2>Our Time Together</h2>
                 <div class="counter-details">
@@ -211,28 +246,26 @@
                     <div id="seconds">0 Seconds</div>
                 </div>
             </div>
-            <!-- Love Meter Placeholder -->
             <div class="love-meter-box" onclick="toggleDropdown(this)">
                 <h2>Love Meter</h2>
                 <div class="love-meter-details">
-                    <div>Coming Soon!</div>
+                    <div id="love-meter-text" onclick="showLoveBar(event)">Click Me To Find Out How Much I Love You</div>
+                    <img id="love-bar" src="bar.gif" alt="Love Bar" style="display: none; width: 100%; height: auto;">
+                    <div id="final-text">SIKEEE MY LOVE FOR YOU IS IMMEASURABLE!!!</div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Background Music -->
     <audio id="background-music" autoplay loop>
-        <source src="starfire.mp3" type="audio/mpeg"> <!-- Fixed file name -->
+        <source src="starfire.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <script>
-        // Set video playback rate to 2.5x
         const video = document.getElementById('valentine-video');
         video.addEventListener('loadedmetadata', () => {
-            video.playbackRate = 2.5; // Set playback speed to 2.5x
+            video.playbackRate = 2.5;
         });
 
-        // Open Envelope Animation
         function openEnvelope() {
             let envelope = document.querySelector('.content');
             let newContent = document.querySelector('.hidden-content');
@@ -240,14 +273,13 @@
             setTimeout(() => {
                 envelope.style.display = 'none';
                 newContent.style.display = 'flex';
-                document.body.style.backgroundImage = "url('bg3.jpg')"; // Change background image
+                document.body.style.backgroundImage = "url('bg3.jpg')";
                 gsap.to(".valentine-text", { duration: 2, opacity: 1, y: 20, ease: "power2.out" });
                 createHeartParticles();
-                document.getElementById('background-music').play(); // Start background music
+                document.getElementById('background-music').play();
             }, 1000);
         }
 
-        // Heart Particles Animation
         function createHeartParticles() {
             setInterval(() => {
                 let heart = document.createElement("img");
@@ -262,23 +294,19 @@
             }, 300);
         }
 
-        // Dropdown Logic
         function toggleDropdown(element) {
             const details = element.querySelector('.counter-details, .love-meter-details');
             const allDetails = document.querySelectorAll('.counter-details, .love-meter-details');
             
-            // Close all other dropdowns
             allDetails.forEach((detail) => {
                 if (detail !== details) {
                     detail.style.display = 'none';
                 }
             });
             
-            // Toggle the clicked dropdown
             details.style.display = details.style.display === 'block' ? 'none' : 'block';
         }
 
-        // Time Counter Logic
         function startCounter() {
             const startTime = new Date("September 9, 2024 14:31:00").getTime();
             setInterval(() => {
@@ -297,7 +325,40 @@
             }, 1000);
         }
 
-        // Start the counter automatically
+        function showLoveBar(event) {
+            // Stop the event from propagating to the parent dropdown
+            event.stopPropagation();
+
+            const loveText = document.getElementById('love-meter-text');
+            const loveBar = document.getElementById('love-bar');
+            const finalText = document.getElementById('final-text');
+
+            // Reset the GIF to ensure it plays from the start
+            loveBar.src = ''; // Clear the src
+            setTimeout(() => {
+                loveBar.src = 'bar.gif'; // Reassign the src
+            }, 10);
+
+            loveText.style.display = 'none';
+            loveBar.style.display = 'block';
+
+            setTimeout(() => {
+                loveBar.style.display = 'none';
+                finalText.style.display = 'block';
+
+                gsap.fromTo(finalText, 
+                    { scale: 0, opacity: 0 }, 
+                    { scale: 1, opacity: 1, duration: 1, ease: "elastic.out(1, 0.5)" }
+                );
+
+                setTimeout(() => {
+                    finalText.style.display = 'none';
+                    loveText.style.display = 'block';
+                    toggleDropdown(document.querySelector('.love-meter-box'));
+                }, 6000);
+            }, 3500);
+        }
+s
         startCounter();
     </script>
 </body>
