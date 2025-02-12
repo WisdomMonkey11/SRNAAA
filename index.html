@@ -251,7 +251,7 @@
                 <div class="love-meter-details">
                     <div id="love-meter-text" onclick="showLoveBar(event)">Click Me To Find Out How Much I Love You</div>
                     <img id="love-bar" src="bar.gif" alt="Love Bar" style="display: none; width: 100%; height: auto;">
-                    <div id="final-text">SIKEEE MY LOVE FOR YOU IS IMMEASURABLE!!!</div>
+                    <div id="final-text">SIKEEEE MY LOVE FOR YOU IS IMMEASURABLE!!!</div>
                 </div>
             </div>
         </div>
@@ -308,15 +308,20 @@
         }
 
         function startCounter() {
+            // Set a valid past start date (e.g., September 9, 2023)
             const startTime = new Date("September 9, 2024 14:31:00").getTime();
             setInterval(() => {
                 const now = new Date().getTime();
                 const elapsed = now - startTime;
+
+                // Calculate months, days, hours, minutes, and seconds
                 const months = Math.floor(elapsed / (1000 * 60 * 60 * 24 * 30));
                 const days = Math.floor((elapsed % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+
+                // Update the counter display
                 document.getElementById("months").innerText = `${months} Months`;
                 document.getElementById("days").innerText = `${days} Days`;
                 document.getElementById("hours").innerText = `${hours} Hours`;
@@ -358,7 +363,8 @@
                 }, 6000);
             }, 3500);
         }
-s
+
+        // Start the counter automatically
         startCounter();
     </script>
 </body>
