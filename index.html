@@ -32,6 +32,18 @@
             height: 100vh;
             position: relative;
         }
+
+        /* Animated Video Container */
+        .animated-video {
+            width: 50vw; /* Increased size */
+            max-width: 400px; /* Maximum size */
+            margin-bottom: 20px; /* Space between video and envelope */
+        }
+
+        .animated-video video {
+            width: 100%;
+            height: auto;
+        }
         
         .envelope {
             width: 50vw; /* Larger envelope */
@@ -169,6 +181,14 @@
 </head>
 <body>
     <div class="content">
+        <!-- Animated Video (WebM with transparency) -->
+        <div class="animated-video">
+            <video autoplay loop muted playsinline id="valentine-video">
+                <source src="peachngoma.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <!-- Envelope -->
         <div class="envelope" onclick="openEnvelope()">
             <img src="envelope.png" alt="Envelope">
         </div>
@@ -206,6 +226,12 @@
         Your browser does not support the audio element.
     </audio>
     <script>
+        // Set video playback rate to 2.5x
+        const video = document.getElementById('valentine-video');
+        video.addEventListener('loadedmetadata', () => {
+            video.playbackRate = 2.5; // Set playback speed to 2.5x
+        });
+
         // Open Envelope Animation
         function openEnvelope() {
             let envelope = document.querySelector('.content');
