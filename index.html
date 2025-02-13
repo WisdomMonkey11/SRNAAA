@@ -215,6 +215,33 @@
             60% { transform: scale(1.2); opacity: 1; }
             100% { transform: scale(1); opacity: 1; }
         }
+
+        /* New styles for the GIFs */
+        .middle-gif {
+            position: fixed; /* Use fixed positioning */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px; /* Adjust size as needed */
+            z-index: -1; /* Place it behind other content */
+        }
+
+        .bottom-gif {
+            position: fixed; /* Use fixed positioning */
+            bottom: 10px; /* Adjust distance from the bottom */
+            left: 80%;
+            transform: translateX(-50%);
+            width: 200px; /* Adjust size as needed */
+            z-index: -1; /* Place it behind other content */
+        }
+
+        .cloud-gif {
+            position: fixed; /* Use fixed positioning */
+            top: 60%; /* Adjust vertical position */
+            left: 10px; /* Adjust horizontal position */
+            width: 150px; /* Adjust size as needed */
+            z-index: -1; /* Place it behind other content */
+        }
     </style>
 </head>
 <body>
@@ -255,6 +282,11 @@
                 </div>
             </div>
         </div>
+
+        <!-- Add the GIFs here -->
+        <img class="middle-gif" src="middle.gif" alt="Middle GIF">
+        <img class="bottom-gif" src="bottom.gif" alt="Bottom GIF">
+        <img class="cloud-gif" src="cloud.gif" alt="Cloud GIF">
     </div>
     <audio id="background-music" autoplay loop>
         <source src="starfire.mp3" type="audio/mpeg">
