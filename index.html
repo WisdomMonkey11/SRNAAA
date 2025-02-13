@@ -216,6 +216,15 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
+        /* Styles for the GIFs */
+        .top-gif {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 150px; /* Adjust size as needed */
+            z-index: -1; /* Place it behind other content */
+        }
+
         .bottom-gif {
             position: fixed;
             bottom: 10px;
@@ -292,6 +301,7 @@
         </div>
 
         <!-- GIFs -->
+        <img class="top-gif" src="top.gif" alt="Top GIF">
         <img class="bottom-gif" src="bottom.gif" alt="Bottom GIF">
         <img class="cloud-gif" src="cloud.gif" alt="Cloud GIF">
     </div>
