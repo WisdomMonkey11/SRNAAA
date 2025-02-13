@@ -218,20 +218,32 @@
         }
 
         .bottom-gif {
-            position: fixed; /* Use fixed positioning */
-            bottom: 10px; /* Adjust distance from the bottom */
+            position: fixed;
+            bottom: 10px;
             left: 80%;
             transform: translateX(-50%);
-            width: 200px; /* Adjust size as needed */
-            z-index: -1; /* Place it behind other content */
+            width: 200px;
+            z-index: -1;
         }
 
         .cloud-gif {
-            position: fixed; /* Use fixed positioning */
-            top: 60%; /* Adjust vertical position */
-            left: 10px; /* Adjust horizontal position */
-            width: 150px; /* Adjust size as needed */
-            z-index: -1; /* Place it behind other content */
+            position: fixed;
+            top: 60%;
+            left: 10px;
+            width: 150px;
+            z-index: -1;
+        }
+
+        /* Updated styles for the handwritten note */
+        .handwritten-note {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 24px;
+            color: #ff3366;
+            transform: rotate(-5deg);
+            z-index: 10;
         }
     </style>
 </head>
@@ -250,6 +262,7 @@
     <div class="hidden-content">
         <div class="valentine-text">
             <div>HAPPYYY VALENTINES</div>
+            <div>DAYYY</div>
             <div>SRNAAA</div>
             <div>MY LOVEEE</div>
         </div>
@@ -274,9 +287,14 @@
             </div>
         </div>
 
-        <!-- Add the GIFs here -->
+        <!-- GIFs -->
         <img class="bottom-gif" src="bottom.gif" alt="Bottom GIF">
         <img class="cloud-gif" src="cloud.gif" alt="Cloud GIF">
+
+        <!-- Handwritten note at the bottom left -->
+        <div class="handwritten-note">
+            With love from: Spaceyyyy 
+        </div>
     </div>
     <audio id="background-music" autoplay loop>
         <source src="starfire.mp3" type="audio/mpeg">
