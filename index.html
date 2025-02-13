@@ -214,7 +214,6 @@
             0% { transform: scale(0); opacity: 0; }
             60% { transform: scale(1.2); opacity: 1; }
             100% { transform: scale(1); opacity: 1; }
-
         }
 
         .bottom-gif {
@@ -243,7 +242,7 @@
             font-size: 24px;
             color: #ff3366;
             transform: rotate(-5deg);
-            z-index: 10;
+            z-index: -1; /* Move it behind other elements */
         }
     </style>
 </head>
@@ -287,14 +286,14 @@
             </div>
         </div>
 
-        <!-- GIFs -->
-        <img class="bottom-gif" src="bottom.gif" alt="Bottom GIF">
-        <img class="cloud-gif" src="cloud.gif" alt="Cloud GIF">
-
         <!-- Handwritten note at the bottom left -->
         <div class="handwritten-note">
             With love from: Spaceyyyy 
         </div>
+
+        <!-- GIFs -->
+        <img class="bottom-gif" src="bottom.gif" alt="Bottom GIF">
+        <img class="cloud-gif" src="cloud.gif" alt="Cloud GIF">
     </div>
     <audio id="background-music" autoplay loop>
         <source src="starfire.mp3" type="audio/mpeg">
